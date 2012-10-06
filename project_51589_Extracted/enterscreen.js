@@ -140,7 +140,7 @@ j_12_js = function(runBeforeShow) { /* Object & array with components "name-to-i
         $('#j_15 [name="mobilebutton2"]').die().live({
             click: function() {
                 if (!$(this).attr('disabled')) {
-                    $.ajax( { 
+                    /*$.ajax( { 
 		        beforeSend: function (xhr, settings) {
 			    xhr.withCredentials = true;
 			    xhr.setRequestHeader('Authorization', 'Bearer YWMtE-YnbQ_5EeKcJRIxPRrEgQAAATo9CODWUjc-to2vLDwJ6rx7qfyZz24flsg');
@@ -153,12 +153,12 @@ j_12_js = function(runBeforeShow) { /* Object & array with components "name-to-i
 			    date:$(this).mobiledatepicker1.value,
 			    location:$(this).mobiletextinput6.value
 			    },
-			success:function(data) {
+			success:function(data) {*/
 		            Tiggr.navigateTo('homescreen', {
                                 reverse: false
                             });
-			}
-	            });
+			/*}
+	            });*/
                 }
             },
         });
