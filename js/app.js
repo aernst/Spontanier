@@ -434,22 +434,25 @@ $(document).ready(function () {
       var isotime = date.toISOString();
       formattedTime = prettyDate(isotime);
 
-	  html += '<div id="accordion"> ';
+	  
       html += '<div style="border-bottom: 1px solid #444; padding: 5px; min-height: 60px;"><img src="' + imageUrl + '" style="border none; height: 50px; width: 50px; float: left;padding-right: 10px"> ';
       html += '<span style="float: right">'+formattedTime+'</span>';
       html += '<strong>' + name + '</strong>';
       if (username && username != appUser.get('username')) {
         html += '(<a href="#page-now-following" id="'+created+'" name="'+username+'" data-role="button" data-rel="dialog" data-transition="fade">Follow</a>)';
       }
-	  html += '<br><span></span> <br>';
-      html += '<h3><a href="#"><br><span>' + activity_name + '</span> <br></a></h3>';
-	  html += '<div>';
+	  html += '</div>';
+	  html += '<div id="accordion"> ';
+	  html += '<div class="pane" style="display:block">';
+      html += '<h2 class="current"><a href="#"><br><span>' + activity_name + '</span> <br></a></h2>';
+	  html += '</div>';
+	  html += '<div class="pane">';
 	  html += '<br><span>' + activity_date + '</span> <br>';
 	  html += '<br><span>' + activity_time + '</span> <br>';
 	  html += '<br><span>' + activity_location + '</span> <br>';
 	  html += '</div>';
       html += '</div>';
-	  html += '</div>';
+	  
       usersToBind[created] = username;
     }
     if (html == "") { html = "No messages yet!"; }
