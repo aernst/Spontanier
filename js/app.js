@@ -440,6 +440,7 @@ $(document).ready(function () {
       if (username && username != appUser.get('username')) {
         html += '(<a href="#page-now-following" id="'+created+'" name="'+username+'" data-role="button" data-rel="dialog" data-transition="fade">Follow</a>)';
       }
+	  html += '<br><span></span> <br>';
       html += '<br><span>' + activity_name + '</span> <br>';
 	  html += '<br><span>' + activity_date + '</span> <br>';
 	  html += '<br><span>' + activity_time + '</span> <br>';
