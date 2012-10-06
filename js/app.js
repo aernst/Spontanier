@@ -403,7 +403,10 @@ $(document).ready(function () {
       var message = feed.getNextEntity();
       //var message = messages[i];
       var created = message.get('created');
-      var content = message.get('content');
+      var activity_name = message.get('activity_name');
+	  var activity_date = message.get('activity_date');
+	  var activity_time = message.get('activity_time');
+	  var activity_location = message.get('activity_location');
       var actor = message.get('actor');
       var name = actor.displayName;
       if (!name) { name = 'Anonymous'; }
@@ -437,7 +440,10 @@ $(document).ready(function () {
       if (username && username != appUser.get('username')) {
         html += '(<a href="#page-now-following" id="'+created+'" name="'+username+'" data-role="button" data-rel="dialog" data-transition="fade">Follow</a>)';
       }
-      html += '<br><span>' + content + '</span> <br>';
+      html += '<br><span>' + activity_name + '</span> <br>';
+	  html += '<br><span>' + activity_date + '</span> <br>';
+	  html += '<br><span>' + activity_time + '</span> <br>';
+	  html += '<br><span>' + activity_location + '</span> <br>';
       html += '</div>';
       usersToBind[created] = username;
     }
