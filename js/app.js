@@ -206,7 +206,7 @@ $(document).ready(function () {
          Usergrid.validation.validatePassword(password, function (){
           $("#new-password").focus();
           $("#new-password").addClass('error');})  ) {
-      appUser = new Usergrid.User(); //make sure we have a clean user, and then add the data
+      appUser = new Usergrid.Entity('user'); //make sure we have a clean user, and then add the data
       appUser.set({"name":name,"username":username,"email":email,"password":password});
       appUser.save(
         function () {
@@ -512,6 +512,10 @@ $(document).ready(function () {
       return false;
     }
     appUser = Usergrid.ApiClient.getLoggedInUser();
+	var activity_name = $("#activity_name").val();
+	var activity_date = $("#activity_date").val();
+	var activity_time = $("#activity_time").val();
+	var activity_location = $("#activity_location").val();
     var content = $("#content").val();
     var actor =
     {"actor" : {
@@ -527,6 +531,10 @@ $(document).ready(function () {
       "email" : appUser.get('email')
     },
     "verb" : "post",
+	"activity_name" : activity_name,
+	"activity_date" : activity_date,
+	"activity_time" : activity_time,
+	"activity_location" : activity_location,
     "content" : content,
     "lat" : 48.856614,
     "lon" : 2.352222};
@@ -599,7 +607,7 @@ $(document).ready(function () {
   var feedReloadTimer = window.setInterval( timerRefreshView, 30000 );
 
   function timerRefreshView(){
-    if (Usergrid.ApiClient.isLoggedInAppUser()) {
+    /* if (Usergrid.ApiClient.isLoggedInAppUser()) {
       if (fullFeedView) {
         showFullFeed();
       } else {
@@ -608,7 +616,8 @@ $(document).ready(function () {
     } else {
       window.location = "#page-login";
       return;
-    }
+    } */
+    return;
   }
 
 });
